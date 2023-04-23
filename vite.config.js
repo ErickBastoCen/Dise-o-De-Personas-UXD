@@ -4,6 +4,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
+
+//configuración para cambio de dominio
 export default defineConfig({
   server: {
     proxy: {
@@ -21,5 +23,5 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  //base:'./',
+  base:'./',
 })
