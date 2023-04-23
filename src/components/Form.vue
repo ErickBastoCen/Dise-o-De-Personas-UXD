@@ -18,7 +18,7 @@
       return{
         nombre: "",
         edad: "",
-        estadoCivil:'',
+        estadoCivil:'', #
         trabajo: "",
         residencia: "",
         cita: "",
