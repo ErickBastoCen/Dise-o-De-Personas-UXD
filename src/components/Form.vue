@@ -18,7 +18,7 @@
       return{
         nombre: "",
         edad: "",
-        estadoCivil:'', #
+        estadoCivil:'', 
         trabajo: "",
         residencia: "",
         cita: "",
@@ -28,11 +28,28 @@
         personalidad02:50,
         personalidad03:50,
         personalidad04:50,
-        marcas: "",
-        objetivos: [{value: 'obj1'},{value: 'obj1'},{value: 'obj1'},{value: 'obj1'}],
-        frustraciones: [{value: 'obj1'},{value: 'obj1'},{value: 'obj1'},{value: 'obj1'}],
-        motivaciones: [{value: 'motivacion','porcentaje':'80'},{value: 'motivacion','porcentaje':'80'},{value: 'motivacion','porcentaje':'80'}]
-        
+        objetivos:[],
+        objetivos2:[],
+        objetivos3:[],
+        objetivos4:[],
+        frustraciones:[],
+        frustraciones2:[],
+        frustraciones3:[],
+        frustraciones4:[],
+        motivaciones: [],
+        motivaciones2: [],
+        motivaciones3: [],
+        motivaciones4: [],
+        porcentaje: "0",
+        porcentaje2: "0",
+        porcentaje3: "0",
+        porcentaje4: "0",
+        marcas: [],
+        marcas2: [],
+        marcas3: [],
+        marcas4: [],
+
+        funcion: false,
 
         }
         },
@@ -55,13 +72,16 @@
             personalidad02: this.personalidad02,
             personalidad03: this.personalidad03,
             personalidad04: this.personalidad04,
-            marcas: this.marcas,
+            objetivos: this.objetivos,
             frustraciones: this.frustraciones,
-            motivaciones: this.motivaciones
-
-          }).then((response) => {console.log(response.status)});
-        },
-
+            motivaciones: this.motivaciones,
+            porcentaje: this.porcentaje,
+            marcas: this.marcas,
+          })
+          .then((response) => {
+            console.log(response.status);
+          });
+      },
 
         pers1(s){
                 this.personalidad01=s;
@@ -118,10 +138,66 @@
                 this.estadoCivil = s;
                 console.log(this.estadoCivil);
         },
-        Motivaciones(s){
-                this.motivaciones = s;
-                console.log(this.motivaciones);
-        },
+        
+        objetivo1(s){
+                this.objetivos2=s;
+                this.objetivos=[{value:s}];
+                console.log(this.objetivos)
+            },
+        objetivo2(s){
+                    this.objetivos3=s;
+                    this.objetivos=[{value: this.objetivos2},{value: this.objetivos3}];
+                    console.log(this.objetivos3)
+                },
+        objetivo3(s){
+                    this.objetivos4=s;
+                    this.objetivos=[{value: this.objetivos2},{value: this.objetivos3},{value: this.objetivos4}];
+                    console.log(this.objetivos4)
+                    console.log(this.objetivos)
+                },
+        frustracion1(s){
+                    this.frustraciones2=s;
+                    this.frustraciones=[{value:s}];
+                    console.log(this.frustraciones)
+                },
+        frustracion2(s){
+                    this.frustraciones3=s;
+                    this.frustraciones=[{value: this.frustraciones2},{value: this.frustraciones3}];
+                    console.log(this.frustraciones3)
+                },
+        frustracion3(s){
+                    this.frustraciones4=s;
+                this.frustraciones=[{value: this.frustraciones2},{value: this.frustraciones3},{value: this.frustraciones4}];
+                console.log(this.frustraciones4)
+                console.log(this.frustraciones)
+            },
+        motivacion1(s){
+                    this.motivaciones2=s;
+                    
+                },
+        motivacion2(s){
+                    this.motivaciones3=s;
+                
+                },
+        motivacion3(s){
+                    this.motivaciones4=s;
+                },
+        por1(s){
+                    this.porcentaje2=s;
+                    this.motivaciones={value: this.motivaciones2,'porcentaje':s};
+                    console.log(this.motivaciones)
+                },
+        por2(s){
+                    this.porcentaje3=s;
+                    this.motivaciones=[{value: this.motivaciones2,'porcentaje':this.porcentaje2},{value: this.motivaciones3, 'porcentaje':s}];
+                    console.log(this.motivaciones);
+                
+                },
+        por3(s){
+                    this.porcentaje4=s;
+                    this.motivaciones=[{value: this.motivaciones2,'porcentaje':this.porcentaje2},{value: this.motivaciones3, 'porcentaje':this.porcentaje3},{value: this.motivaciones4, 'porcentaje':s}]
+                    console.log(this.motivaciones)
+                },
 
         soloLetras(e){
         console.log(e)
@@ -375,36 +451,46 @@
           <p class="text-red-500 text-xs italic">Por favor introduzca el autor de su marca.</p>
         </div>
       </div>
-
-
+      
       <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-3">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-            Objetivos
+            Escribe 3 Objetivos:
           </label>
-          <textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="objetivos" type="text" placeholder="El diseño no es solo lo que parece y se siente..." v-model="objetivos" >
+          <Input @datosInput="objetivo1" @input="soloLetras"></Input>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su trabajo.</p>
+          <Input @datosInput="objetivo2" @input="soloLetras"></Input>
 
-          </textarea>
-          <p class="text-red-500 text-xs italic">Por favor introduzca sus objetivos.</p>
+          <Input @datosInput="objetivo3" @input="soloLetras"></Input>
         </div>
       </div>
+
       <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-3">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-            Frustraciones
+            Escribe 3 Frustraciones:
           </label>
-          <textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="frustraciones" type="text" placeholder="El diseño no es solo lo que parece y se siente..." v-model="frustraciones">
-          </textarea>
-          <p class="text-red-500 text-xs italic">Por favor introduzca sus frustraciones.</p>
+          <Input @datosInput="frustracion1" @input="soloLetras"></Input>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su trabajo.</p>
+          <Input @datosInput="frustracion2" @input="soloLetras"></Input>
+
+          <Input @datosInput="frustracion3" @input="soloLetras"></Input>
         </div>
       </div>
+
       <div class="flex flex-wrap -mx-3 mb-6">
         <div class="w-full px-3">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-            Motivaciones
+            Escribe 3 Motivaciones:
           </label>
-          <TextArea @datosText="Motivaciones" @input="soloLetras" ></TextArea> 
-          <p class="text-red-500 text-xs italic">Por favor introduzca sus motivaciones.</p>
+          <Input @datosInput="motivacion1" @input="soloLetras"></Input>
+          <slider @person="por1">Porcentaje</slider>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su trabajo.</p>
+          <Input @datosInput="motivacion2" @input="soloLetras"></Input>
+          <slider @person="por2">Porcentaje</slider>
+
+          <Input @datosInput="motivacion3" @input="soloLetras"></Input>
+          <slider @person="por3">Porcentaje</slider>
         </div>
       </div>
     </form>
