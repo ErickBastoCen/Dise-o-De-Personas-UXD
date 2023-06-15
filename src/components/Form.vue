@@ -45,9 +45,7 @@
         porcentaje3: "0",
         porcentaje4: "0",
         marcas: [],
-        marcas2: [],
-        marcas3: [],
-        marcas4: [],
+       
 
         funcion: false,
 
@@ -139,61 +137,61 @@
                 console.log(this.estadoCivil);
         },
         
-        objetivo1(s){
+        Objetivo1(s){
                 this.objetivos2=s;
                 this.objetivos=[{value:s}];
                 console.log(this.objetivos)
             },
-        objetivo2(s){
+        Objetivo2(s){
                     this.objetivos3=s;
                     this.objetivos=[{value: this.objetivos2},{value: this.objetivos3}];
                     console.log(this.objetivos3)
                 },
-        objetivo3(s){
+        Objetivo3(s){
                     this.objetivos4=s;
                     this.objetivos=[{value: this.objetivos2},{value: this.objetivos3},{value: this.objetivos4}];
                     console.log(this.objetivos4)
                     console.log(this.objetivos)
                 },
-        frustracion1(s){
+        Frustracion1(s){
                     this.frustraciones2=s;
                     this.frustraciones=[{value:s}];
                     console.log(this.frustraciones)
                 },
-        frustracion2(s){
+        Frustracion2(s){
                     this.frustraciones3=s;
                     this.frustraciones=[{value: this.frustraciones2},{value: this.frustraciones3}];
                     console.log(this.frustraciones3)
                 },
-        frustracion3(s){
+        Frustracion3(s){
                     this.frustraciones4=s;
                 this.frustraciones=[{value: this.frustraciones2},{value: this.frustraciones3},{value: this.frustraciones4}];
                 console.log(this.frustraciones4)
                 console.log(this.frustraciones)
             },
-        motivacion1(s){
+        Motivacion1(s){
                     this.motivaciones2=s;
                     
                 },
-        motivacion2(s){
+        Motivacion2(s){
                     this.motivaciones3=s;
                 
                 },
-        motivacion3(s){
+        Motivacion3(s){
                     this.motivaciones4=s;
                 },
-        por1(s){
+        Por1(s){
                     this.porcentaje2=s;
                     this.motivaciones={value: this.motivaciones2,'porcentaje':s};
                     console.log(this.motivaciones)
                 },
-        por2(s){
+        Por2(s){
                     this.porcentaje3=s;
                     this.motivaciones=[{value: this.motivaciones2,'porcentaje':this.porcentaje2},{value: this.motivaciones3, 'porcentaje':s}];
                     console.log(this.motivaciones);
                 
                 },
-        por3(s){
+        Por3(s){
                     this.porcentaje4=s;
                     this.motivaciones=[{value: this.motivaciones2,'porcentaje':this.porcentaje2},{value: this.motivaciones3, 'porcentaje':this.porcentaje3},{value: this.motivaciones4, 'porcentaje':s}]
                     console.log(this.motivaciones)
@@ -272,7 +270,6 @@
 </script>
 
 <template>
-  <center>
     <br>
     <center>
       <div>
@@ -280,7 +277,7 @@
         <p class="text-xl font-bold text-black text-[48px] align">Registrate con nosotros</p>
         <br>
       </div>
-    </center>
+    
     <br>
 
     <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" width="300" height="300">
@@ -448,7 +445,7 @@
             Marca
           </label>
           <Input @datosInput="Marcas" @input="soloLetras" ></Input>
-          <p class="text-red-500 text-xs italic">Por favor introduzca el autor de su marca.</p>
+          <p class="text-red-500 text-xs italic">Por favor introduzca el autor de su marca.</p>}
         </div>
       </div>
       
@@ -457,11 +454,12 @@
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
             Escribe 3 Objetivos:
           </label>
-          <Input @datosInput="objetivo1" @input="soloLetras"></Input>
-          <p class="text-red-500 text-xs italic">Por favor introduzca su trabajo.</p>
-          <Input @datosInput="objetivo2" @input="soloLetras"></Input>
-
-          <Input @datosInput="objetivo3" @input="soloLetras"></Input>
+          <Input @datosInput="Objetivo1" @input="soloLetras"></Input>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su objetivo.</p>
+          <Input @datosInput="Objetivo2" @input="soloLetras"></Input>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su objetivo.</p>
+          <Input @datosInput="Objetivo3" @input="soloLetras"></Input>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su objetivo.</p>
         </div>
       </div>
 
@@ -470,11 +468,12 @@
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
             Escribe 3 Frustraciones:
           </label>
-          <Input @datosInput="frustracion1" @input="soloLetras"></Input>
-          <p class="text-red-500 text-xs italic">Por favor introduzca su trabajo.</p>
-          <Input @datosInput="frustracion2" @input="soloLetras"></Input>
-
-          <Input @datosInput="frustracion3" @input="soloLetras"></Input>
+          <Input @datosInput="Frustracion1" @input="soloLetras"></Input>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su frustración.</p>
+          <Input @datosInput="Frustracion2" @input="soloLetras"></Input>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su frustración.</p>
+          <Input @datosInput="Frustracion3" @input="soloLetras"></Input>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su frustración.</p>
         </div>
       </div>
 
@@ -483,20 +482,34 @@
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
             Escribe 3 Motivaciones:
           </label>
-          <Input @datosInput="motivacion1" @input="soloLetras"></Input>
-          <slider @person="por1">Porcentaje</slider>
-          <p class="text-red-500 text-xs italic">Por favor introduzca su trabajo.</p>
-          <Input @datosInput="motivacion2" @input="soloLetras"></Input>
-          <slider @person="por2">Porcentaje</slider>
-
-          <Input @datosInput="motivacion3" @input="soloLetras"></Input>
-          <slider @person="por3">Porcentaje</slider>
+          <Input @datosInput="Motivacion1" @input="soloLetras"></Input>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su motivación.</p>
+          <slider @person="Por1">Porcentaje</slider>
+          <label class="text-black  text-left md:text-left my-2 md:mb-0">
+            Porcentaje: {{ this.porcentaje2 }}%
+          </label>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su porcentaje.</p>
+          <Input @datosInput="Motivacion2" @input="soloLetras"></Input>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su motivación.</p>
+          <slider @person="Por2">Porcentaje</slider>
+          <label class="text-black  text-left md:text-left my-2 md:mb-0">
+            Porcentaje: {{ this.porcentaje3 }}%
+          </label>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su porcentaje.</p>
+          <Input @datosInput="Motivacion3" @input="soloLetras"></Input>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su motivación.</p>
+          <slider @person="Por3">Porcentaje</slider>
+          <label class="text-black  text-left md:text-left my-2 md:mb-0">
+            Porcentaje: {{ this.porcentaje4 }}%
+          </label>
+          <p class="text-red-500 text-xs italic">Por favor introduzca su porcentaje.</p>
+          
         </div>
       </div>
     </form>
 
-
-    <btnEnviar @click="submit()" onclick="alert('Usuario Registrado')" v-if=" nombre != '' && marcas != ''">Registrar persona</btnEnviar>
+  
+    <btnEnviar @click="submit()" onclick="alert('Usuario Registrado')" v-if=" nombre != '' && motivaciones != ''">Registrar persona</btnEnviar>
     
   </center>
 </template>
